@@ -1,0 +1,15 @@
+﻿@model ComandaMVC.Models.ComandaModel
+
+<link href="~/css/create.css" rel="stylesheet" />
+
+<h1>Adicionar Comanda</h1>
+
+<form asp-action="create" method="post">
+	<label asp-for="Nome">Nome Usuário:</label>
+	<input asp-for="Nome" type="text" id="nome" name="nome" required>
+
+	<label asp-for="Mesa">Mesa:</label>
+	<input asp-for="Mesa" type="number" id="mesa" name="mesa" required>
+
+	<input type="submit" value="Adicionar Comanda">
+</form>

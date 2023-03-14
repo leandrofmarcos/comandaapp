@@ -1,0 +1,38 @@
+﻿@model ComandaMVC.Models.ComandaModel
+
+<link href="~/css/detalhe.css" rel="stylesheet" />
+
+
+<div class="comanda-container">
+	<div>
+		<form asp-controller="Comanda" asp-action="AdcionarProduto">
+
+			<select asp-for="Id"
+					asp-items="@(new SelectList(ViewBag.Produtos,"Id", "Nome", "Preco"))">
+				<option>Please select one</option>
+			</select>
+
+			<input type="hidden" name="comandaId" value="@Model.Id" />
+			<input type="submit" />
+
+		</form>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Valor</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.Produtos)
+			{
+				<tr>
+					<td>@item.Nome</td>
+					<td>R$ @item.Preco</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<div class="total">Total: R$ @Model.Total</div>
+</div>

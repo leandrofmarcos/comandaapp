@@ -1,0 +1,23 @@
+﻿@model List<ComandaMVC.Models.ComandaModel>;
+
+<link href="~/css/comanda.css" rel="stylesheet" />
+
+<div>
+	<h1>Comandas</h1>
+	<a asp-action="create">Abrir Comanda</a>
+</div>
+
+<div class="mesas-container">
+
+	@foreach (var item in Model)
+	{
+		<a asp-action="detalhe" asp-route-id="@item.Id">
+			<div class="mesa">
+				<div class="numero">Mesa @item.Mesa </div>
+				<div class="status">@item.Status</div>
+				<div class="nome">@item.Nome </div>
+				<div class="total">Total: R$ @item.Total</div>
+			</div>
+		</a>
+	}
+</div>
